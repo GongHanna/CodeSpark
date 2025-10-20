@@ -59,6 +59,10 @@
 
 ## ✏️ 미니프로젝트 진행상황
 
+
+### 2025.10.20
+* Figma를 이용해 투두 기능, 로그인 창, 스타일 시트 작성
+
 ### 2025.10.18
 * [주간 회의 보고서](https://github.com/Code-spark-dev/todo_list/wiki/10.18-%EC%A3%BC%EA%B0%84%ED%9A%8C%EC%9D%98)
 * Figma를 이용해 기능 정리 및 화면 구성
