@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import "../styles/Home.css";
 import TodoItem from "../components/TodoItem";
 import todosData from "../data/todoContents.json";
@@ -28,6 +28,22 @@ export default function Home() {
       ))
     );
 
+  // 스크롤바 감지
+  useLayoutEffect(() => {
+    const scrollBoxes = document.querySelectorAll(".todo_list");
+    scrollBoxes.forEach(box => {
+      const hasScroll = box.scrollHeight > box.clientHeight;
+      const parentBox = box.parentElement;
+      if (hasScroll) {
+        box.classList.add("has-scroll");
+        parentBox.classList.add("has-scroll");
+      } else {
+        box.classList.remove("has-scroll");
+        parentBox.classList.remove("has-scroll");
+      }
+    });
+  }, [plannedTodos, ongoingTodos, completeTodos]);
+
   return (
     <main className="home">
       {/* Planned */}
@@ -39,9 +55,11 @@ export default function Home() {
           <h2>Planned</h2>
         </div>
 
-        <ul className={`todo_list ${plannedTodos.length === 0 ? "empty" : ""}`}>
-          {renderTodoList(plannedTodos, "TODO를 추가해주세요.")}
-        </ul>
+        <div className={`scroll_box ${plannedTodos.length === 0 ? "empty" : ""}`}>
+          <ul className="todo_list">
+            {renderTodoList(plannedTodos, "TODO를 추가해주세요.")}
+          </ul>
+        </div>
       </section>
 
       {/* Ongoing */}
@@ -53,9 +71,11 @@ export default function Home() {
           <h2>Ongoing</h2>
         </div>
 
-        <ul className={`todo_list ${ongoingTodos.length === 0 ? "empty" : ""}`}>
-          {renderTodoList(ongoingTodos, "진행중인 TODO가 없습니다.")}
-        </ul>
+        <div className={`scroll_box ${plannedTodos.length === 0 ? "empty" : ""}`}>
+          <ul className="todo_list">
+            {renderTodoList(ongoingTodos, "진행중인 TODO가 없습니다.")}
+          </ul>
+        </div>
       </section>
 
       {/* Complete */}
@@ -66,10 +86,11 @@ export default function Home() {
           </svg>
           <h2>Complete</h2>
         </div>
-
-        <ul className={`todo_list ${completeTodos.length === 0 ? "empty" : ""}`}>
-          {renderTodoList(completeTodos, "완료된 TODO가 없습니다.")}
-        </ul>
+        <div className={`scroll_box ${plannedTodos.length === 0 ? "empty" : ""}`}>
+          <ul className="todo_list">
+            {renderTodoList(completeTodos, "완료된 TODO가 없습니다.")}
+          </ul>
+        </div>
       </section>
     </main>
   );
