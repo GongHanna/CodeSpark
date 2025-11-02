@@ -59,6 +59,8 @@
 
 ## ✏️ 미니프로젝트 진행상황
 
+👉 [SCHEDY 보러가기](https://gonghanna.github.io/CodeSpark/)
+
 ### 2025.11.02
 * 드래그앤드롭 기능 추가 완료 [참고자료](https://github.com/hello-pangea/dnd)
 
