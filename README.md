@@ -63,9 +63,44 @@
 
 ### 2025.11.02
 * 드래그앤드롭 기능 추가 완료 [참고자료](https://github.com/hello-pangea/dnd)
+  * 리액트에서 드래그 앤 드롭(Drag and Drop) 기능을 쉽게 구현할 수 있게 도와주는 라이브러리 사용 => @hello-pangea/dnd
+  * 기본 구조는 세 가지 컴포넌트/훅으로 이루어져 있음 :
+```
+<DragDropContext onDragEnd={handleDragEnd}>
+  <Droppable droppableId="droppable-id">
+    {(provided) => (
+      <div ref={provided.innerRef} {...provided.droppableProps}>
+        {items.map((item, index) => (
+          <Draggable key={item.id} draggableId={item.id} index={index}>
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+              >
+                {item.content}
+              </div>
+            )}
+          </Draggable>
+        ))}
+        {provided.placeholder}
+      </div>
+    )}
+  </Droppable>
+</DragDropContext>
+```
+  * DragDropContext → 드래그 이벤트 관리
+  * Droppable → 드롭 가능한 영역
+  * Draggable → 드래그 가능한 요소
+  * 순서 변경 & 상태 관리 :
+    * 드래그 후 손을 떼면 onDragEnd 이벤트가 호출됨
+    * 이벤트 핸들러에서 source.index와 destination.index를 사용하여 배열 순서를 재정렬하고 상태(state)를 업데이트
 
 ### 2025.11.01
 * 스크롤바 이슈 수정 완료
+* 기존에 있던 구조 수정
+  * ul>li 구조에서, div>ul>li 구조로 수정 후, ul에 적용하던 padding을 div에 적용 및 그 외 css 수정
+  * 스크롤 감지할 스크립트 코드 추가 작성
 
 ### 2025.10.26
 * 각 기능별로 컴포넌트 및 페이지 분류 후, 헤더, 홈화면, 투두리스트 제작
