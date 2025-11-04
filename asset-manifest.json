@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/CodeSpark/static/css/main.fc9353a5.css",
+    "main.css": "/CodeSpark/static/css/main.303c95bd.css",
     "main.js": "/CodeSpark/static/js/main.32ddf1de.js",
     "static/media/logo.svg": "/CodeSpark/static/media/logo.6232fbaaaa6e3804e8370fbf884b7fba.svg",
     "index.html": "/CodeSpark/index.html",
-    "main.fc9353a5.css.map": "/CodeSpark/static/css/main.fc9353a5.css.map",
+    "main.303c95bd.css.map": "/CodeSpark/static/css/main.303c95bd.css.map",
     "main.32ddf1de.js.map": "/CodeSpark/static/js/main.32ddf1de.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc9353a5.css",
+    "static/css/main.303c95bd.css",
     "static/js/main.32ddf1de.js"
   ]
 }
