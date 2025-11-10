@@ -61,6 +61,12 @@
 
 👉 [SCHEDY 보러가기](https://gonghanna.github.io/CodeSpark/)
 
+### 2025.11.10
+* Home.jsx에 백엔드와 통신을 위한 코드 추가
+* 로그인 페이지 추가
+* 회원가입 페이지 추가
+
+
 ### 2025.11.04
 * 반응형 css 수정
 
